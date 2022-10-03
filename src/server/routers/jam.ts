@@ -1,4 +1,4 @@
-import { createRouter } from 'server/createRouter';
+import { createRouter } from '~/server/createRouter';
 import { z } from 'zod';
 
 export const jamRouter = createRouter()

@@ -8,6 +8,8 @@ module.exports = {
     'prettier',
     'plugin:react/recommended',
     'plugin:import/typescript',
+    'plugin:jest/recommended',
+    'plugin:jest/style',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -25,8 +27,11 @@ module.exports = {
       },
       typescript: true,
     },
+    'jest': {
+      version: 29,
+    },
   },
-  plugins: ['react', '@typescript-eslint'],
+  plugins: ['react', '@typescript-eslint', 'jest'],
   rules: {
     'semi': 2, // Semi-colon
     'func-names': 0,
@@ -53,10 +58,10 @@ module.exports = {
         jsx: 'never',
       },
     ],
-    // 'import/no-extraneous-dependencies': [2, { devDependencies: true }],
     'no-use-before-define': [2, { functions: false }],
     'import/prefer-default-export': 0,
     'import/no-unresolved': 1,
+    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     // ----- React plugin -----
     'react/react-in-jsx-scope': 0,
     'react/jsx-filename-extension': [2, { extensions: ['.tsx'] }],
