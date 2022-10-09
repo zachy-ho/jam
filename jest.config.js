@@ -6,10 +6,10 @@ const createJestConfig = nextJest({
 
 const customJestConfig = {
   testEnvironment: 'jest-environment-jsdom',
+  moduleDirectories: ['node_modules', '<rootDir>/'],
   moduleNameMapper: {
-    '^~/pages/(.*)$': '<rootDir>/src/pages/$1',
-    '^~/server/(.*)$': '<rootDir>/src/server/$1',
-    '^~/prisma/(.*)$': '<rootDir>/prisma/$1',
+    '^pages/(.*)$': '<rootDir>/src/pages/$1',
+    '^server/(.*)$': '<rootDir>/src/server/$1',
   },
   testMatch: ['**/tests/**/*.tests.{ts,tsx}'],
 };
