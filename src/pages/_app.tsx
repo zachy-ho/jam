@@ -2,7 +2,7 @@ import type { AppProps } from 'next/app';
 import './globals.css';
 
 function createJamApp() {
-  console.log('factory called');
+  console.log('init factory called');
   function MyApp({ Component, pageProps }: AppProps) {
     return <Component {...pageProps} />;
   }
