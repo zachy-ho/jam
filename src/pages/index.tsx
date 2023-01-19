@@ -11,7 +11,7 @@ const LinkButton = ({
   href: string;
 }) => (
   <Link href={href}>
-    <a href={href} className="border-neutral-100">{children}</a>
+    <a href={href}>{children}</a>
   </Link>
 );
 
@@ -23,8 +23,8 @@ const Home: NextPage = () => (
       <link rel='icon' href='/favicon.ico' />
     </Head>
 
-    <main className='flex h-screen w-screen flex-col items-center justify-center'>
-      <h1 className='text-7xl'>
+    <main>
+      <h1>
         Let&apos;s <a href='https://nextjs.org'>jam!</a>
       </h1>
       <LinkButton href='/jam'>sesh</LinkButton>

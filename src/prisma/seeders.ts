@@ -39,7 +39,7 @@ export async function seedJams<N extends number>(
   const jams: Prisma.JamCreateArgs['data'][] = [...Array(opts.jamsCount)].map(
     (_) => ({
       id: faker.datatype.uuid(),
-      name: faker.lorem.words(),
+      name: `${faker.word.adjective()} ${faker.word.noun()}`,
       sessions: maybeGenerateSessionCreation(opts.sessionsPerJam)
     })
   );

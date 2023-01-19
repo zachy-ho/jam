@@ -11,7 +11,7 @@ model Jam {
   id   String @id @db.Uuid
   name String
   sessions Session[]
-  users User[]
+  participants User[]
 }
 
 model Session {

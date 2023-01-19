@@ -3,7 +3,7 @@
 import { prisma } from '../server/prisma';
 import { seedUsers, seedJams } from './seeders';
 
-async function seed() {
+(async function seed() {
   // Seed users
   seedUsers(prisma, 3);
 
@@ -12,6 +12,4 @@ async function seed() {
     jamsCount: 3,
     sessionsPerJam: 'random'
   });
-}
-
-seed();
+})();
