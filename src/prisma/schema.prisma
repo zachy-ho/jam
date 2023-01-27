@@ -7,26 +7,68 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Visibility {
+  PRIVATE
+  PUBLIC
+}
+
 model Jam {
   id   String @id @db.Uuid
   name String
-  sessions Session[]
-  participants User[]
+  startDatetime DateTime @map("start_datetime")
+  endDatetime DateTime @map("end_datetime")
+  visibility Visibility
+  summary String? @db.VarChar(100)
+  description String? @db.VarChar(500)
+  // Update to Google Place ID somehow after investigation
+  venue String?
+  tickets Ticket[]
+  ticketConfiguration TicketConfiguration[]
+  organisers JamsOrganisers[]
+
+  @@map("jam")
 }
 
-model Session {
-  id        String   @id(map: "sessions_pkey") @db.Uuid
-  date_from DateTime @db.Date
-  date_to   DateTime @db.Date
+model JamsOrganisers {
   jam Jam @relation(fields: [jamId], references: [id])
-  jamId String @db.Uuid
+  jamId String @map("jam_id") @db.Uuid
+  user User @relation(fields: [userId], references: [id])
+  userId String @map("user_id") @db.Uuid
+
+  @@id([jamId, userId])
+  @@map("jam_organiser")
 }
 
 model User {
   id         String  @id @db.Uuid
-  first_name String
-  last_name  String
+  firstName String @map("first_name")
+  lastName  String @map("last_name")
   email      String @unique
-  password   String
-  jams Jam[]
+  organisedJams JamsOrganisers[]
+
+  @@map("user")
+}
+
+model Ticket {
+  id String @id @db.Uuid
+  jam Jam @relation(fields: [jamId], references: [id])
+  jamId String @map("jam_id") @db.Uuid
+  serialNumber Int @map("serial_number")
+  ticketConfiguration TicketConfiguration @relation(fields: [ticketConfigurationId], references: [id])
+  ticketConfigurationId String @map("ticket_configuration_id") @db.Uuid
+
+  @@unique([jamId, serialNumber])
+  @@map("ticket")
+}
+
+model TicketConfiguration {
+  id String @id @db.Uuid
+  jam Jam @relation(fields: [jamId], references: [id])
+  jamId String @db.Uuid
+  name String @db.VarChar(50)
+  description String? @db.VarChar(100)
+  price Int?
+  tickets Ticket[]
+
+  @@map("ticket_configuration")
 }
