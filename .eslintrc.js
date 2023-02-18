@@ -35,6 +35,7 @@ module.exports = {
   rules: {
     'semi': 2, // Semi-colon
     'func-names': 0,
+    'no-plusplus': 0,
     'no-unused-vars': [
       1,
       {
