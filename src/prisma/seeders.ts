@@ -8,12 +8,12 @@ const RANDOM_JAMS_TO_SEED = 3;
 export async function seedUsers(
   client: PrismaClient,
 ): Promise<Prisma.BatchPayload> {
-  try {
-    await client.user.deleteMany({});
-  } catch (e) {
-    console.error("Something wrong with deleting all User entries");
-    throw e;
-  }
+  // try {
+    // await client.user.deleteMany({});
+  // } catch (e) {
+    // console.error("Something wrong with deleting all User entries");
+    // throw e;
+  // }
 
   const users: Prisma.UserCreateInput[] = fakeUsers.concat([...Array(RANDOM_USERS_TO_SEED)].map((_) => ({
     id: faker.datatype.uuid(),
@@ -36,13 +36,12 @@ export async function seedUsers(
 export async function seedJamsBase(
   client: PrismaClient,
 ) {
-  try {
-    await client.jam.deleteMany({});
-    await client.jamsOrganisers.deleteMany({});
-  } catch (e) {
-    console.error("Something wrong with deleting all Jam and JamsOrganisers entries");
-    throw e;
-  }
+  // try {
+    // await client.jam.deleteMany({});
+  // } catch (e) {
+    // console.error("Something wrong with deleting all Jam and JamsOrganisers entries");
+    // throw e;
+  // }
 
   let count = RANDOM_JAMS_TO_SEED;
   const jams: Prisma.JamCreateInput[] = [];
@@ -102,9 +101,27 @@ export async function seedJamsBase(
 */
 export async function deleteAllJamsOrganisers(client: PrismaClient) {
   try {
-    await client.jamsOrganisers.deleteMany({});
+    await client.jamOrganiser.deleteMany({});
   } catch (e) {
     console.error('Something wrong with deleting all JamsOrganisers records');
+    throw e;
+  }
+}
+
+export async function deleteAllTicketConfigurations(client: PrismaClient) {
+  try {
+    await client.ticketConfiguration.deleteMany({});
+  } catch (e) {
+    console.error('Something wrong with deleting all ticketConfiguration records');
+    throw e;
+  }
+}
+
+export async function deleteAllTickets(client: PrismaClient) {
+  try {
+    await client.ticket.deleteMany({});
+  } catch (e) {
+    console.error('Something wrong with deleting all Ticket records');
     throw e;
   }
 }
