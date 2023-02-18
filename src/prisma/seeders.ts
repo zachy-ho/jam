@@ -6,7 +6,6 @@ export async function seedUsers<N extends number>(
   client: PrismaClient,
   usersCount: PositiveInteger<N>
 ) {
-  const start = Date.now();
   await client.user.deleteMany({});
 
   const users: Prisma.UserCreateArgs['data'][] = [...Array(usersCount)].map((_) => ({
