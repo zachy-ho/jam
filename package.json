@@ -10,7 +10,6 @@
     "test:watch": "jest --watch",
     "lint": "next lint",
     "format": "prettier --write",
-    "seed": "npx ts-node ./src/prisma/seed.ts",
     "prisma": "npx prisma"
   },
   "prisma": {
