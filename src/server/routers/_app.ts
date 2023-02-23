@@ -1,12 +1,20 @@
-import { createRouter } from 'server/createRouter';
-import { jamRouter } from './jam';
+import { initTRPC } from '@trpc/server';
+import { z } from 'zod';
 
-export const appRouter = createRouter()
-  .query('chicken', {
-    resolve() {
-      return {
-        very: 'yum',
-      };
-    },
-  })
-  .merge('jam', jamRouter);
+const t = initTRPC.create();
+
+export const appRouter = t.router({
+  // sample route
+  hello: t.procedure.input(
+    z.object({
+      text: z.string()
+    })
+  )
+  .query(({ input }) => ( 
+    {
+      greeting: `hello ${input.text}`
+    }
+  ))
+});
+
+export type AppRouter = typeof appRouter;

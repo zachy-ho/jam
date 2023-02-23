@@ -21,6 +21,7 @@
     "incremental": true,
     "baseUrl": "src",
     "paths": {
+      "base/*": ["base/*"],
       "pages/*": ["pages/*"],
       "server/*": ["server/*"]
     }
