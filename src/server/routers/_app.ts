@@ -1,11 +1,11 @@
-import { initTRPC } from '@trpc/server';
 import { z } from 'zod';
+import { procedure, router } from 'server/trpc/trpc';
+import { jamRouter } from './jam';
 
-const t = initTRPC.create();
-
-export const appRouter = t.router({
+export const appRouter = router({
   // sample route
-  hello: t.procedure.input(
+  hello: procedure
+  .input(
     z.object({
       text: z.string()
     })
@@ -14,7 +14,8 @@ export const appRouter = t.router({
     {
       greeting: `hello ${input.text}`
     }
-  ))
+  )),
+  jam: jamRouter
 });
 
 export type AppRouter = typeof appRouter;

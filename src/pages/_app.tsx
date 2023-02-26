@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app';
 import './globals.css';
-import { trpc } from '../trpc';
+import { trpc } from 'base/trpc';
 
 function createJamApp() {
   console.log('init factory called');
