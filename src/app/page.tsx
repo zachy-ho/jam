@@ -1,10 +1,9 @@
 'use client';
 
 import * as React from 'react';
-import type { NextPage } from 'next';
 import { trpc } from 'app/trpcClient';
 
-const Home: NextPage = () => {
+const Home = () => {
   const jamCreate = trpc.jam.create.useMutation();
 
   const handleButtonClicked = () => {
