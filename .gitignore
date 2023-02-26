@@ -18,6 +18,9 @@ jam-service-account.json
 # production
 /build
 
+# editor
+.vscode
+
 # misc
 .DS_Store
 *.pem

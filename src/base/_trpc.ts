@@ -15,6 +15,8 @@ function getBaseUrl() {
 }
 
 /**
+* @deprecated until tRPC makes '@trpc/next' work with RSC
+*
 * tRPC hooks to use on the client
 */
 export const trpc = createTRPCNext<AppRouter>({
