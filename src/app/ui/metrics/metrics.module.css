@@ -1,0 +1,14 @@
+@value gridBaseline: 8px;
+
+/** Breakpoints */
+@value smallBreakpoint: 600px;
+@value mediumBreakpoint: 900px;
+@value largeBreakpoint: 1200px;
+
+/** Media queries */
+@value defaultDown (max-width: calc(smallBreakpoint - 1px));
+@value smallUp (min-width: smallBreakpoint);
+@value smallDown (max-width: calc(mediumBreakpoint - 1px));
+@value mediumUp (min-width: mediumBreakpoint);
+@value mediumDown (max-width: calc(largeBreakpoint - 1px));
+@value largeUp (min-width: largeBreakpoint);

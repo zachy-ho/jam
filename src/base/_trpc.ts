@@ -8,17 +8,17 @@ function getBaseUrl() {
   }
 
   // if (process.env.VERCEL_URL) {
-    // return `https://${env.VERCEL_URL}`;
+  // return `https://${env.VERCEL_URL}`;
   // }
 
   return `http://localhost:${process.env.PORT ?? 3000}`;
 }
 
 /**
-* @deprecated until tRPC makes '@trpc/next' work with RSC
-*
-* tRPC hooks to use on the client
-*/
+ * @deprecated until tRPC makes '@trpc/next' work with RSC
+ *
+ * tRPC hooks to use on the client
+ */
 export const trpc = createTRPCNext<AppRouter>({
   config() {
     return {
@@ -35,5 +35,5 @@ export const trpc = createTRPCNext<AppRouter>({
       ],
     };
   },
-  ssr: false
+  ssr: false,
 });

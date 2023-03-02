@@ -5,17 +5,15 @@ import { jamRouter } from './jam';
 export const appRouter = router({
   // sample route
   hello: procedure
-  .input(
-    z.object({
-      text: z.string()
-    })
-  )
-  .query(({ input }) => ( 
-    {
-      greeting: `hello ${input.text}`
-    }
-  )),
-  jam: jamRouter
+    .input(
+      z.object({
+        text: z.string(),
+      })
+    )
+    .query(({ input }) => ({
+      greeting: `hello ${input.text}`,
+    })),
+  jam: jamRouter,
 });
 
 export type AppRouter = typeof appRouter;

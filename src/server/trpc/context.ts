@@ -5,11 +5,14 @@ import { FetchCreateContextFnOptions } from '@trpc/server/adapters/fetch';
 
 export async function createNextContext(_opts: CreateNextContextOptions) {
   return {
-    prisma
+    prisma,
   };
 }
 
-export async function createContext({ req, resHeaders }: FetchCreateContextFnOptions) {
+export async function createContext({
+  req,
+  resHeaders,
+}: FetchCreateContextFnOptions) {
   return { req, resHeaders, prisma };
 }
 

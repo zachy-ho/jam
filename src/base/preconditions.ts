@@ -5,5 +5,5 @@ export const Preconditions = {
     }
 
     return i;
-  }
+  },
 };
