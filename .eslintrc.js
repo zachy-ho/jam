@@ -65,9 +65,11 @@ module.exports = {
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     // ----- React plugin -----
     'react/react-in-jsx-scope': 0,
+    'react/destructuring-assignment': 0,
     'react/jsx-filename-extension': [2, { extensions: ['.tsx'] }],
     'react/jsx-boolean-value': 0,
     'react/jsx-props-no-spreading': 0,
+    'react/require-default-props': 0,
     'react/function-component-definition': [
       1,
       {
