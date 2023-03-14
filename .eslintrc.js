@@ -70,12 +70,6 @@ module.exports = {
     'react/jsx-boolean-value': 0,
     'react/jsx-props-no-spreading': 0,
     'react/require-default-props': 0,
-    'react/function-component-definition': [
-      1,
-      {
-        namedComponents: ['arrow-function', 'function-declaration'],
-        unnamedComponents: 'arrow-function',
-      },
-    ],
+    'react/function-component-definition': 0,
   },
 };

@@ -1,8 +1,8 @@
 import * as React from 'react';
 import type { Metadata } from 'next';
 import './globals.css';
-import { ThemeProvider } from './ThemeProvider';
-import { ClientProvider } from './trpcClient';
+import { ThemeProvider } from './theme_provider';
+import { ClientProvider } from './trpc_client';
 
 function createAppRoot() {
   console.log('App root initiated');
